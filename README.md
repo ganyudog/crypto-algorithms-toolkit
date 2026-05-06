@@ -25,7 +25,6 @@
 - **统一调度接口**：`CryptoAPI.execute(algorithm, action, **params)` 一个入口调用所有算法
 - **RESTful API**：Flask 应用，支持 POST 和 GET 两种请求方式
 - **完整测试**：pytest 单元测试 + 独立 HTTP 客户端测试脚本
-- **自动报告生成**：运行测试后生成 HTML 报告，可打印为 PDF
 
 ---
 
@@ -38,8 +37,7 @@
 ├── tests/
 │   ├── __init__.py
 │   └── test_crypto.py       # pytest 单元测试：直接测试核心模块各算法
-├── report_generator.py      # 报告生成器：运行测试 → 生成 report.html
-├── report.html              # 已生成的 HTML 报告（浏览器可打印为 PDF）
+├── report.html              # 已生成的 HTML 报告
 ├── 报告.pdf                  # 期中作业报告 PDF
 ├── 网络信息安全密码算法编程-期中作业-要求及评分细则.pdf
 ├── .gitignore
@@ -59,7 +57,6 @@ crypto_algorithms.py
 api_server.py  ──调用──> CryptoAPI
 test_client.py ──HTTP──> api_server.py ──调用──> CryptoAPI
 tests/test_crypto.py ──直接调用──> crypto_algorithms.py
-report_generator.py ──调用──> CryptoAPI ──生成──> report.html
 ```
 
 ---
@@ -368,17 +365,7 @@ python test_client.py
 
 ---
 
-## 8. 生成报告
-
-```bash
-python report_generator.py
-```
-
-脚本执行全部算法测试，收集结果，生成 `report.html`。在浏览器中打开该文件，`Ctrl+P` 即可打印/导出为 PDF。
-
----
-
-## 9. 参考文献
+## 8. 参考文献
 
 1. NIST. FIPS 197: Advanced Encryption Standard (AES). 2001.
 2. Rivest R L, et al. The RC6 Block Cipher. RSA Laboratories, 1998.
